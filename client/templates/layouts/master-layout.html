@@ -1,0 +1,10 @@
+<template name="masterLayout">
+  <div class="admin">
+    <p id="close-admin-panel"><i class="fa fa-times"></i></p>
+    {{>Template.dynamic template=admin}}
+  </div>
+  <div class="app">
+    <p id="open-admin-panel">Admin panel</p>
+    {{>Template.dynamic template=app}}
+  </div>
+</template>

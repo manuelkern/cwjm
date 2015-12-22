@@ -1,0 +1,91 @@
+//
+// Variables
+//
+$mobileBreakpoint: 480px;
+$tabletBreakpoint: 768px;
+$computerBreakpoint: 990px;
+$largeMonitorBreakpoint: 1200px;
+$widescreenBreakpoint: 1920px;
+
+//
+// Colors
+//
+$white: #FFFFFF;
+$black: #000000;
+$darker: rgba(0,0,0,.1);
+$lighter: rgba(255,255,255,.1);
+$beige: #e7dbc3;
+
+//
+// Mixins
+//
+@mixin font-size($sizeValue: 1.6) {
+  font-size: ($sizeValue * 10) + px;
+  font-size: $sizeValue + rem;
+}
+
+//
+// Fonts
+//
+@font-face {
+    font-family: 'KarlaRegular';
+    src: url('../fonts/KarlaRegular.eot');
+    src: url('../fonts/KarlaRegular.eot') format('embedded-opentype'),
+         url('../fonts/KarlaRegular.woff2') format('woff2'),
+         url('../fonts/KarlaRegular.woff') format('woff'),
+         url('../fonts/KarlaRegular.ttf') format('truetype'),
+         url('../fonts/KarlaRegular.svg#KarlaRegular') format('svg');
+}
+
+
+@font-face {
+    font-family: 'KarlaBold';
+    src: url('../fonts/KarlaBold.eot');
+    src: url('../fonts/KarlaBold.eot') format('embedded-opentype'),
+         url('../fonts/KarlaBold.woff2') format('woff2'),
+         url('../fonts/KarlaBold.woff') format('woff'),
+         url('../fonts/KarlaBold.ttf') format('truetype'),
+         url('../fonts/KarlaBold.svg#KarlaBold') format('svg');
+}
+
+@font-face {
+    font-family: 'DINProRegular';
+    src: url('../fonts/DINProRegular.eot');
+    src: url('../fonts/DINProRegular.eot') format('embedded-opentype'),
+         url('../fonts/DINProRegular.woff2') format('woff2'),
+         url('../fonts/DINProRegular.woff') format('woff'),
+         url('../fonts/DINProRegular.ttf') format('truetype'),
+         url('../fonts/DINProRegular.svg#DINProRegular') format('svg');
+}
+
+
+html {
+  font-size: 62.5%;
+  user-select: none;
+}
+
+html, body {
+  @include font-size(1);
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: $beige;
+  font-family: 'DINProRegular';
+}
+
+#open-admin-panel {
+  position: absolute;
+  z-index: 999;
+}
+
+a {
+  text-decoration: none;
+  color: $black
+}
+
+//
+// Pages
+//
+@import "admin.scss";
+@import "app.scss";

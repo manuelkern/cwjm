@@ -1,0 +1,39 @@
+<!-- Website -->
+<template name="home">
+  {{#if Template.subscriptionsReady}}
+    {{#with euroRacks}}
+      <div class="page home">
+        
+        <div class="modules-nav">
+          <ul>
+          {{#each euroRacks}}
+            <li><a href="{{pathFor '/:slug' slug=slug}}">{{title}}</a></li>
+          {{/each}}
+          </ul>
+        </div>
+
+        <div class="euro-racks">
+        {{#each euroRacks}}
+          <div class="euro-rack">
+            <!-- <div class="title"> <a href="{{pathFor '/:slug' slug=slug}}">{{title}}</a></div> -->
+            <img class="image" src="{{image.url}}">
+          </div>
+        {{/each}}
+        </div>
+
+      </div>
+
+    {{/with}}
+  {{/if}}
+</template>
+
+
+
+<template name="euroRack">
+  {{#if Template.subscriptionsReady}}
+    {{#with euroRack}}
+      {{title}}
+      <img src="{{image.url}}" >
+    {{/with}}
+  {{/if}}
+</template>

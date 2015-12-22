@@ -1,0 +1,15 @@
+<template name="editEuroRackAdmin">
+  {{#if Template.subscriptionsReady}}
+    {{#with euroRack}}
+
+      <p>Edit {{title}}</p>
+      {{> editEuroRackFormAdmin}}
+      {{> uploaderAdmin multiple=false callbacks=uploaderCallbacks thumbnail=image.thumbnail image=image }}
+
+      <a href="/">Home</a>
+
+    {{/with}}
+  {{else}}
+    <p>Loading...</p>
+  {{/if}}
+</template>

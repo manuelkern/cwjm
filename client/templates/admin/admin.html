@@ -1,0 +1,29 @@
+<template name="admin">
+  {{> submitEuroRack}}
+  {{> euroRacksAdmin}}
+</template>
+
+<template name="euroRacksAdmin">
+  {{#if Template.subscriptionsReady}}
+  <ul>
+    {{#each euroRacks}}
+      <li>{{> euroRackAdmin}}</li>
+    {{/each}}
+  </ul>
+  {{else}}
+    <p>Loading...</p>
+  {{/if}}
+</template>
+
+<template name="euroRackAdmin">
+  <a href="/edit/{{slug}}" class="link-to-edit">{{title}}</a>
+  <a href="#" class="delete-euro"><i class="fa fa-trash"></i></a>
+  <br>
+  <div class="euro-controls">
+    <input type="checkbox" checked="{{#if active}}checked{{/if}}" class="toggle-active" id="active-module">
+    <label for="active-module" class="{{#if active}} checked{{/if}}">Active</label>
+    <br>
+    <input type="checkbox" checked="{{#if discontinued}}checked{{/if}}" class="toggle-discontinued">
+    <label for="discontinued-module" class="{{#if discontinued}} checked{{/if}}">Discontinued</label>
+  </div>
+</template>
