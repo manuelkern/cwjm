@@ -1,12 +1,19 @@
 Animations = {};
 
+Animations.setHeightAndWidth = function(image, size) {
+  image.parentNode.style.width = image.naturalWidth / size + 'px';
+  image.parentNode.style.height = image.naturalHeight / size + 'px'; 
+  console.log(image.naturalWidth / size);
+}
+
 Animations.setSizeOfModules = function(images, size) {
-  $(images).parent().hide();
+  // $(images).hide();
   for (let img of images) {
-    img.onload = function(){
-      this.parentNode.style.width  = (this.naturalWidth / size) + 'px';
-      this.parentNode.style.height = (this.naturalHeight / size) + 'px';
-      $(this.parentNode).velocity('fadeIn', { display: 'inline-block' });
+    img.onload = function() {
+      Animations.setHeightAndWidth(img, size);
+      if (img.complete) {
+        $(this.parentNode).css({'opacity': '1'});
+      }
     }
   }
 }
@@ -14,7 +21,6 @@ Animations.setSizeOfModules = function(images, size) {
 Animations.setSizeOfModulesOnResize = function(images, size) {
   let module = {}
   for (let img of images) {
-    img.parentNode.style.width = img.naturalWidth / size + 'px';
-    img.parentNode.style.height = img.naturalHeight / size + 'px';
+    Animations.setHeightAndWidth(img, size);
   }
 }

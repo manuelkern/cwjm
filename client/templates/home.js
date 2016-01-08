@@ -11,8 +11,6 @@ Template.home.onRendered(function() {
     if(Template.instance().subscriptionsReady()) {
 
       Tracker.afterFlush(function() {
-        //subs ready
-        const imgModules = document.querySelectorAll('.image');
         //calculate size of modules
         const calcSize = function(){
           let size = 2.5;
@@ -22,6 +20,8 @@ Template.home.onRendered(function() {
             return size;
           }
         }
+        //vars
+        const imgModules = document.querySelectorAll('.image');
         //set grid
         Animations.setSizeOfModules(imgModules, calcSize());
         //set grid on resize

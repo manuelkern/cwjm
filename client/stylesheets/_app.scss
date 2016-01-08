@@ -10,32 +10,76 @@
     left: 50%;
     width: 50%;
   }
+  .darker {
+    position: fixed;
+    height: 100%;
+    width: 275px;
+    background-color: $darker;
+  }
+  .main-nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: calc(100% - 155px);
+    height: 200px;
+    padding: 20px 0 0 155px;
+    border-bottom: 1px solid $black;
+    text-transform: uppercase;
+    @include font-size(0.8);
+    z-index: 900;
+    ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+        display: inline-block;
+        padding: 0 30px 0 30px;
+      }
+    }
+    .logo{
+      background-image: url('/images/logo.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 130px;
+      height: 15px;
+      position: absolute;
+      bottom: 20px;
+      left: 114px;
+    }
+  }
 
   .home {
-    margin-top: 100px;
+    position: relative;
+    width: 100%;
     .modules-nav {
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
-      width: 200px;
-      background-color: $darker;
+      width: 275px;
       @include font-size(0.8);
       ul {
-        margin-top: 100px;
+        position: relative;
         padding: 0;
         text-align: right;
         text-transform: uppercase;
-        padding-right: 20px;
+        padding-right: 24px;
+        margin: 50px 0 0 0;
         li {
           list-style: none;
           padding: 3px 0 3px 0;
+          a {
+            padding: 3px 6px 3px 6px;
+            &:hover {
+              background-color: $black;
+              color: $beige;
+            }
+          }
         }
       }
     }
     .euro-racks {
       position: relative;
-      width: calc(100% - 250px);
+      width: calc(100% - 325px);
       float: right;
       word-spacing: -4px;
       padding-right: 50px;
@@ -48,14 +92,18 @@
         word-spacing: normal;
         overflow: hidden;
         margin: 50px 0 0 50px;
-        box-shadow: 0px 0px 16px 1px rgba(220,209,186,1);
-        transition: all .3s;
+        // box-shadow: 0px 0px 16px 1px rgba(220,209,186,1);
+        opacity: 0;
+        // width: 0;
+        transition: width .3s, height .3s, opacity 1s;
+        transition-delay: 0s, 0s, 0.3s;
         .title {
           position: absolute;
           text-rendering: auto;
           letter-spacing: normal;
         }
         img {
+          // opacity: 0;
           height: 100%;
           width: 100%;
           cursor: pointer;

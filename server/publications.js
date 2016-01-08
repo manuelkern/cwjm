@@ -1,4 +1,5 @@
 Meteor.publish('euroRacks', function() {
+  // Meteor._sleepForMs(2000);
   return EuroRacks.find({});
 });
 
