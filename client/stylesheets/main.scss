@@ -15,6 +15,8 @@ $black: #000000;
 $darker: rgba(0,0,0,.1);
 $lighter: rgba(255,255,255,.1);
 $beige: #e7dbc3;
+$gray: #222121;
+$darkGray: #181818;
 
 //
 // Mixins
@@ -58,6 +60,15 @@ $beige: #e7dbc3;
          url('../fonts/DINProRegular.svg#DINProRegular') format('svg');
 }
 
+@font-face {
+    font-family: 'DINProBold';
+    src: url('../fonts/DINProBold.eot');
+    src: url('../fonts/DINProBold.eot') format('embedded-opentype'),
+         url('../fonts/DINProBold.woff2') format('woff2'),
+         url('../fonts/DINProBold.woff') format('woff'),
+         url('../fonts/DINProBold.ttf') format('truetype'),
+         url('../fonts/DINProBold.svg#DINProBold') format('svg');
+}
 
 html {
   font-size: 62.5%;

@@ -15,7 +15,6 @@
         <div class="euro-racks">
         {{#each euroRacks}}
           <div class="euro-rack">
-            <!-- <div class="title"> <a href="{{pathFor '/:slug' slug=slug}}">{{title}}</a></div> -->
             <img class="image" src="{{image.url}}">
           </div>
         {{/each}}
@@ -23,17 +22,6 @@
 
       </div>
 
-    {{/with}}
-  {{/if}}
-</template>
-
-
-
-<template name="euroRack">
-  {{#if Template.subscriptionsReady}}
-    {{#with euroRack}}
-      {{title}}
-      <img src="{{image.url}}" >
     {{/with}}
   {{/if}}
 </template>
