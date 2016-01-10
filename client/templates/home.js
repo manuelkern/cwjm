@@ -23,11 +23,11 @@ Template.home.onRendered(function() {
         const imgModules = document.querySelectorAll('.image');
 
         //set grid
-        Animations.setSizeOfModules(imgModules, calcSizeOfModule(size));
+        setTimeout(Animations.setSizeOfModules(imgModules, calcSizeOfModule(size)), 200);
 
         //set grid on resize
         const updateModulesSize = _.debounce(function() {
-          Animations.setSizeOfModulesOnResize(imgModules, calcSizeOfModule(size))
+          setTimeout(Animations.setSizeOfModulesOnResize(imgModules, calcSizeOfModule(size)), 200);
         }, 200);
 
         //window resize
@@ -54,11 +54,13 @@ Template.home.events({
     //variables
     const slug = this.slug;
     const title = this.title;
+    const container = document.getElementsByClassName('euro-racks')[0];
     const centerW = window.innerWidth / 2;
     const centerH = window.innerHeight / 2;
     const $eventLeft = $(event.target).offset().left;
     const $eventCenterHeight = $(event.target).height() / 2;
     const $eventTop = $(event.target).offset().top;
+
     let ready = false;
     let operatorX = true;
     let operatorY = true;
@@ -72,9 +74,6 @@ Template.home.events({
     if ((centerH - $eventCenterHeight) < $eventTop) {
       operatorY = false
     }
-
-    //hide scrollbars
-    // $('.app').css({'overflow-y': 'hidden'});
 
     //euro rack to front
     $(event.target).parent().css({
@@ -99,8 +98,7 @@ Template.home.events({
       const circle = document.createElement('div');
       circle.className = 'circle';
 
-      //container
-      const container = document.getElementsByClassName('euro-racks')[0];
+      //append ripple effect
       container.appendChild(circle);
 
       //mouse position on click
