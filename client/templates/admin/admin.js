@@ -58,5 +58,16 @@ Template.euroRackAdmin.events({
         console.log('module updated');
       }
     });
+  },
+  'click .toggle-new': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setNew', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
   }
 });

@@ -14,6 +14,9 @@ Meteor.methods({
   setInProduction: function(euroRack, value) {
     EuroRacks.update(euroRack, {$set: {inProduction: value}});
   },
+  setNew: function(euroRack, value) {
+    EuroRacks.update(euroRack, {$set: {new: value}});
+  },
   insertImage: function(slug, file) {
     EuroRacks.update({slug: slug}, {$set: {image: file}});
   }

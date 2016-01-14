@@ -84,7 +84,8 @@ html, body {
   padding: 0;
   background-color: $beige;
   font-family: 'DINProRegular';
-  // transition: background-color 1s;
+  font-smoothing: subpixel-antialiased;
+  transition: background-color 1s;
   &.gray {
     background-color: $gray;
   }
@@ -92,7 +93,20 @@ html, body {
 
 #open-admin-panel {
   position: absolute;
+  width: 50px;
+  height: 50px;
+  margin: 0;
+  cursor: pointer;
+  text-align: center;
+  color: $gray;
   z-index: 999;
+  i {
+    line-height: 3;
+  }
+  &:hover {
+    background-color: $gray;
+    color: $beige;
+  }
 }
 
 a {
@@ -103,5 +117,6 @@ a {
 //
 // Pages
 //
+@import "uploader.scss";
 @import "admin.scss";
 @import "app.scss";

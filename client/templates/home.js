@@ -38,7 +38,7 @@ Template.home.onRendered(function() {
   const $app = $('.app');
   if ($app.hasClass('gray')) {
     $app.removeClass('gray');
-    $('.darker, body, html, .modules-nav, .main-nav').removeClass('gray');
+    $('.stripe1, .stripe2, body, html, .modules-nav, .main-nav').removeClass('gray');
   }
 
   let size = 2.5;

@@ -6,7 +6,8 @@
 
   <div class="app">
 
-    <div class="darker"></div>
+    <div class="stripe1"></div>
+    <div class="stripe2"></div>
     {{> modulesNav}}
     <div class="main-nav">
       <ul>
@@ -20,7 +21,7 @@
       <div id="logo"></div>
     </div>
 
-    <p id="open-admin-panel">Admin panel</p>
+    <div id="open-admin-panel"><i class="fa fa-user admin-icon"></i></div>
     {{>Template.dynamic template=app}}
   </div>
 
@@ -33,7 +34,8 @@
     {{#each titles}}
       <li>
         <div>
-          <span class="euro-in-production">{{#if inProduction}}IN PRODUCTION {{/if}}</span>
+          {{#if new}}<span class="euro-new">NEW </span>{{/if}}
+          {{#if inProduction}}<span class="euro-in-production">IN PRODUCTION </span>{{/if}}
           <a href="{{pathFor '/:slug' slug=slug}}" class="euro-rack-title {{#if isActive}}active{{/if}}">{{title}}</a>
         </div>
       </li>

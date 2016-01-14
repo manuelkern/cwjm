@@ -9,21 +9,32 @@
   transition: left .3s ease-in-out, width .3s ease-in-out;
   &.open {
     left: 50%;
-    width: 50%;
+    // width: 50%;
   }
-  .darker {
+  .stripe1 {
     position: fixed;
     height: 100%;
     width: 275px;
     background-color: $darker;
     z-index: 700;
-
     @media (max-width: $largeMonitorBreakpoint) {
       width: 210px;
     }
-
     &.gray {
       background-color: $darkGray;
+    }
+  }
+  .stripe2 {
+    background-color: $middleGray;
+    width: 50%;
+    height: 100%;
+    position: fixed;
+    display: none;
+    @media (max-width: $largeMonitorBreakpoint) {
+      width: 60%;
+    }
+    &.gray {
+      display: inherit;
     }
   }
 
@@ -44,16 +55,13 @@
     text-transform: uppercase;
     @include font-size(0.8);
     z-index: 900;
-
     @media (max-width: $widescreenBreakpoint) {
       height: 150px;
     }
-
     @media (max-width: $largeMonitorBreakpoint) {
       padding: 20px 0 0 90px;
       width: calc(100% - 90px);
     }
-
     ul {
       margin: 0;
       padding: 0;
@@ -81,11 +89,9 @@
       position: absolute;
       bottom: 20px;
       left: 114px;
-
       @media (max-width: $largeMonitorBreakpoint) {
         left: 49px;
       }
-
     }
   }
 
@@ -99,11 +105,9 @@
     position: relative;
     width: 100%;
     top: 220px;
-
     @media (max-width: $widescreenBreakpoint) {
       top: 170px;
     }
-
     .euro-racks {
       position: relative;
       width: calc(100% - 325px);
@@ -111,6 +115,9 @@
       word-spacing: -4px;
       padding-right: 50px;
       text-align: center;
+      @media (max-width: $largeMonitorBreakpoint) {
+        width: calc(100% - 260px);
+      }
       .euro-rack {
         position: relative;
         display: inline-block;
@@ -162,20 +169,19 @@
     width: 100%;
     height: 100%;
 
-    .module-info {
-      background-color: $middleGray;
+    .euro-rack-info {
+      // background-color: $middleGray;
       position: absolute;
       left: 275px;
       width: calc(50% - 275px);
-      height: calc(100% - 270px);
+      // height: calc(100% - 270px);
       top: 0;
       padding-top: 270px;
       color: $beige;
-
       @media (max-width: $widescreenBreakpoint) {
         padding-top: 220px;
+        // height: calc(100% - 220px);
       }
-
       @media (max-width: $largeMonitorBreakpoint) {
         left: 210px;
         width: calc(60% - 210px);
@@ -187,21 +193,22 @@
         padding-left: 30px;
         margin-top: -14px;
         line-height: 1;
-        
+        @media (max-width: $widescreenBreakpoint) {
+          @include font-size(4.5);
+        }
         @media (max-width: $largeMonitorBreakpoint) {
           @include font-size(4);
           margin-top: -12px;
         }
-
         .title {
           font-family: 'DINProBold';
         }
-
         .sub-title {
-          color: $black;
-          max-width: 100%;
+          color: $darkGray;
+          max-width: 95%;
         }
       }
+
       .description {
         padding-left: 35px;
         margin-top: 20px;
@@ -209,18 +216,16 @@
       }
     }
 
-    .euro-rack-wrapper {    
+    .euro-rack-image-wrapper {    
       position: relative;
       width: 50%;
       left: 50%;
       height: 100%;
       top: 0;
-
       @media (max-width: $largeMonitorBreakpoint) {
         width: 40%;
         left: 60%;
       }
-
       .euro-rack {
         position: absolute;
         top: 270px;
@@ -228,16 +233,13 @@
         transform: translateX(-50%);
         width: 450px;
         opacity: 1;
-
         @media (max-width: $widescreenBreakpoint) {
           top: 220px;
-          width: 380px;
+          width: 350px;
         }
-
         @media (max-width: $largeMonitorBreakpoint) {
-          width: 280px;
+          width: 250px;
         }
-
       }
     }
   }
@@ -273,6 +275,14 @@
       letter-spacing: -100px;
       transition: transform .6s;
       transition-delay: .4s;
+      @media (max-width: $widescreenBreakpoint) {
+        font-size: 650px;
+        letter-spacing: -50px;
+      }
+      @media (max-width: $largeMonitorBreakpoint) {
+        font-size: 460px;
+        letter-spacing: -35px;
+      }
       &.open {
         transform: translate(0, -50%);
       }
@@ -338,6 +348,13 @@
           position: relative;
           color: $gray;
           border-radius: 3px;
+          .euro-new {
+            font-family: 'DINProBold';
+            font-size: 10px;
+            vertical-align: baseline;
+            color: red;
+            padding-right: 4px;
+          }
           .euro-in-production {
             font-size: 10px;
             vertical-align: baseline;

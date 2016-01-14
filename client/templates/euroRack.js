@@ -8,7 +8,7 @@ Template.euroRack.onCreated(function() {
 
 Template.euroRack.onRendered(function() {
 	//set background
-	$('.app, .darker, body, html, .modules-nav, .main-nav').addClass('gray');
+	$('.app, .stripe1, .stripe2, body, html, .modules-nav, .main-nav').addClass('gray');
 	const logo = document.getElementById('logo');
 	logo.style.backgroundImage = "url(/images/logo_beige.svg)";
 

@@ -15,12 +15,122 @@
 
   #close-admin-panel {
     text-align: right;
+    cursor: pointer;
+    font-size: 18px;
+  }
+
+  .back {
+    position: absolute;
+    top: 19px;
   }
 
   .add-euro {
     margin: 0 0 4px 0;
     font-size: 25px;
     color: $darker;
+  }
+
+  #edit-euro-rack {
+    background-color: #F4F3F1;
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 4px;
+    input[type="text"] {
+      background-color: #ECEBEA;
+      border: none;
+      height: 30px;
+      width: calc(100% - 10px);
+      padding: 0 0 0 10px;
+      margin: 0 0 5px 0;
+    }
+    input[type="submit"] {
+      font-family: 'DINProRegular';
+      color: $gray;
+      border: none;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 200px;
+      height: 41px;
+      margin-top: 10px;
+      border-radius: 4px;
+      background-color: $beige;
+      @include font-size(1);
+    }
+  }
+
+  .uploader-wrapper {
+    padding: 20px 0;
+    background-color: #F4F3F1;
+    border-radius: 4px;
+    text-align: center;
+    input[type="file"] {
+      display: none;
+    }
+    .box {
+      height: 41px;
+      margin: 0;
+      .info-label {
+        width: 200px;
+        display: inline-block;
+        background-color: transparent;
+        color: $gray;
+        padding: 10px 0;
+      }
+      .outer-progress {
+        width: 200px;
+        display: inline-block;
+        background-color: transparent;
+        height: 41px;
+        position: relative;
+        .inner-progress {
+          font-family: 'DINProRegular';
+          height: 41px;
+          background-color: $darker;
+          font-size: 10px;
+          line-height: 4;
+          p {
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            left: 50%;
+          }
+        }
+      }
+    }
+    .delete-image {
+      @include font-size(1);
+      margin-top: 10px;
+      width: 200px;
+      height: 41px;
+      background-color: transparent;
+      color: $gray;
+      display: inline-block;
+      line-height: 2.5;
+      cursor: pointer;
+      transition: background-color .4s;
+      &:hover {
+        background-color: $beige;
+      }
+    }
+    button {
+      font-family: 'DINProRegular';
+      @include font-size(1);
+      border: none;
+      width: 200px;
+      height: 41px;
+      padding: 0;
+      background-color: $gray;
+      color: $beige;
+      cursor: pointer;
+    }
+    .preview-wrapper {
+      margin-top: 10px;
+      img {
+        width: 200px;
+        vertical-align: top;
+      }
+    }
   }
 
   #submit-euro-rack {

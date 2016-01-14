@@ -3,7 +3,9 @@ Template.uploaderAdmin.onCreated(function(){
 });
 
 Template.uploaderAdmin.onRendered(function(){
+
   Uploader.render.call(this);
+
   function readURL(input) {
     var reader = new FileReader();
     reader.onload = function (e) {
@@ -11,6 +13,7 @@ Template.uploaderAdmin.onRendered(function(){
     };
     reader.readAsDataURL(input.files[0]);
   }
+
   $('.upload-input').change(function(){
     console.log('changed')
     readURL(this);
