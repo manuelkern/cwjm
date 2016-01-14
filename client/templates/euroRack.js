@@ -55,7 +55,7 @@ Template.euroRack.onRendered(function() {
 					$(transitionPanel).addClass('leave');
 					$(secondTransionPanel).velocity({translateX: '200%'}, {
 						duration: 800,
-						easing: 'easeInOut',
+						// easing: 'easeInOut',
 						complete: function() {
 							$(transitionPanel).remove();
 							$(secondTransionPanel).remove();

@@ -12,6 +12,14 @@ Template.euroRacksAdmin.helpers({
 });
 
 Template.euroRackAdmin.events({
+  'mouseenter .link-to-edit': function(event) {
+    let span = event.target.previousSibling;
+    $(span).addClass('go');
+  },
+  'mouseleave .link-to-edit': function(event) {
+    let span = event.target.previousSibling;
+    $(span).removeClass('go');
+  },
   'click .delete-euro': function(event) {
     event.preventDefault();
     var euroRackId = this._id;
@@ -33,6 +41,17 @@ Template.euroRackAdmin.events({
     var euroRackId = this._id;
     var checked = event.target.checked;
     Meteor.call('setActive', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
+  },
+  'click .toggle-inProduction': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setInProduction', euroRackId, checked, function(err) {
       if(err) {
         console.log(err.reason);
       } else {

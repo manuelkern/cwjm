@@ -1,4 +1,5 @@
 <template name="admin">
+  <p class="add-euro">New module</p>
   {{> submitEuroRack}}
   {{> euroRacksAdmin}}
 </template>
@@ -7,7 +8,7 @@
   {{#if Template.subscriptionsReady}}
   <ul>
     {{#each euroRacks}}
-      <li>{{> euroRackAdmin}}</li>
+      <li><span class="euro-tile">{{title}}</span>{{> euroRackAdmin}}</li>
     {{/each}}
   </ul>
   {{else}}
@@ -20,10 +21,13 @@
   <a href="#" class="delete-euro"><i class="fa fa-trash"></i></a>
   <br>
   <div class="euro-controls">
-    <input type="checkbox" checked="{{#if active}}checked{{/if}}" class="toggle-active" id="active-module">
+    <input type="checkbox" checked="{{#if active}}checked{{/if}}" class="toggle-active">
     <label for="active-module" class="{{#if active}} checked{{/if}}">Active</label>
     <br>
     <input type="checkbox" checked="{{#if discontinued}}checked{{/if}}" class="toggle-discontinued">
     <label for="discontinued-module" class="{{#if discontinued}} checked{{/if}}">Discontinued</label>
+    <br>
+    <input type="checkbox" checked="{{#if inProduction}}checked{{/if}}" class="toggle-inProduction">
+    <label for="inProduction-module" class="{{#if inProduction}} checked{{/if}}">In production</label>
   </div>
 </template>

@@ -1,27 +1,95 @@
 .admin {
   position: fixed;
   overflow-y: auto;
-  background-color: #1a1919;
-  color: $beige;
-  width: 50%;
+  background-color: $white;
+  color: $darkGray;
+  width: calc(50% - 80px);
   height: 100%;
   top: 0;
   left: -50%;
   transition: left .3s ease-in-out;
+  padding: 0 40px 0 40px;
   &.open {
     left: 0;
   }
+
+  #close-admin-panel {
+    text-align: right;
+  }
+
+  .add-euro {
+    margin: 0 0 4px 0;
+    font-size: 25px;
+    color: $darker;
+  }
+
+  #submit-euro-rack {
+    padding: 0;
+    word-spacing: -4px;
+    input[type="text"] {
+      margin: 0;
+      border: none;
+      background-color: $darker;
+      height: 30px;
+      padding: 0 0 0 10px;
+      border-right: 1px solid $darker;
+      white-space: nowrap;
+      width: calc(70% - 11px);
+      vertical-align: top;
+      transition: background-color 1s;
+      &:focus {
+        outline:none;
+        background-color: $beige;
+      }
+    }
+    input[type="submit"] {
+      border: none;
+      height: 30px;
+      width: 30%;
+      padding: 0;
+      margin: 0;
+      vertical-align: top;
+      background-color: $beige;
+      color: $gray;
+      cursor: pointer;
+    }
+  }
   ul {
-    padding: 0 40px 0 40px;
+    padding: 0;
+    margin: 0;
     li {
       list-style: none;
-      border-bottom: 1px solid $beige;
-      border-top: 1px solid $beige;
+      border-radius: 4px;
+      border-top: 2px solid $beige;
       position: relative;
-      padding: 10px 0 10px 0;
+      padding: 20px;
       margin-top: 10px;
+      background-color: $darker;
+      overflow: hidden;
+      span {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        background-color: $beige;
+        left: 0;
+        top: -100%;
+        z-index: 5;
+        font-size: 130px;
+        text-transform: uppercase;
+        line-height: 1.5;
+        color: $darker;
+        padding-left: 6px;
+        overflow: hidden;
+        transition: top .4s;
+        &.go {
+          top: 0;
+        }
+      }
       a {
-        color: $beige;
+        position: relative;
+        z-index: 10;
+        font-family: 'DINProBold';
+        color: $darkGray;
         transition: color .3s;
         &:hover {
           color: $white;
@@ -33,11 +101,12 @@
       }
       .delete-euro {
         position: absolute;
-        top: 10px;
-        right: 0;
+        top: 20px;
+        right: 20px;
+        z-index: 0;
       }
       .euro-controls {
-        border-top: 1px dashed $lighter;
+        border-top: 1px dotted $darker;
         margin-top: 10px;
         padding-top: 10px;
       }

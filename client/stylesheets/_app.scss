@@ -17,10 +17,22 @@
     width: 275px;
     background-color: $darker;
     z-index: 700;
+
+    @media (max-width: $largeMonitorBreakpoint) {
+      width: 210px;
+    }
+
     &.gray {
       background-color: $darkGray;
     }
   }
+
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // MAIN NAV
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+
   .main-nav {
     position: absolute;
     top: 0;
@@ -32,7 +44,16 @@
     text-transform: uppercase;
     @include font-size(0.8);
     z-index: 900;
-    // transition: color 1s;
+
+    @media (max-width: $widescreenBreakpoint) {
+      height: 150px;
+    }
+
+    @media (max-width: $largeMonitorBreakpoint) {
+      padding: 20px 0 0 90px;
+      width: calc(100% - 90px);
+    }
+
     ul {
       margin: 0;
       padding: 0;
@@ -60,6 +81,11 @@
       position: absolute;
       bottom: 20px;
       left: 114px;
+
+      @media (max-width: $largeMonitorBreakpoint) {
+        left: 49px;
+      }
+
     }
   }
 
@@ -73,6 +99,10 @@
     position: relative;
     width: 100%;
     top: 220px;
+
+    @media (max-width: $widescreenBreakpoint) {
+      top: 170px;
+    }
 
     .euro-racks {
       position: relative;
@@ -141,34 +171,56 @@
       top: 0;
       padding-top: 270px;
       color: $beige;
+
+      @media (max-width: $widescreenBreakpoint) {
+        padding-top: 220px;
+      }
+
+      @media (max-width: $largeMonitorBreakpoint) {
+        left: 210px;
+        width: calc(60% - 210px);
+      }
+
       .head {
         @include font-size(5);
         text-transform: uppercase;
         padding-left: 30px;
         margin-top: -14px;
         line-height: 1;
+        
+        @media (max-width: $largeMonitorBreakpoint) {
+          @include font-size(4);
+          margin-top: -12px;
+        }
+
         .title {
           font-family: 'DINProBold';
         }
+
         .sub-title {
           color: $black;
-          // word-wrap: break-word;
-          // hyphens: auto;
           max-width: 100%;
         }
       }
       .description {
         padding-left: 35px;
         margin-top: 20px;
-        max-width: 60%;
+        max-width: 80%;
       }
     }
+
     .euro-rack-wrapper {    
       position: relative;
       width: 50%;
       left: 50%;
       height: 100%;
       top: 0;
+
+      @media (max-width: $largeMonitorBreakpoint) {
+        width: 40%;
+        left: 60%;
+      }
+
       .euro-rack {
         position: absolute;
         top: 270px;
@@ -176,6 +228,16 @@
         transform: translateX(-50%);
         width: 450px;
         opacity: 1;
+
+        @media (max-width: $widescreenBreakpoint) {
+          top: 220px;
+          width: 380px;
+        }
+
+        @media (max-width: $largeMonitorBreakpoint) {
+          width: 280px;
+        }
+
       }
     }
   }
@@ -253,23 +315,42 @@
     width: 275px;
     z-index: 750;
     @include font-size(0.8);
+
+    @media (max-width: $widescreenBreakpoint) {
+      top: 220px;
+    }
+
+    @media (max-width: $largeMonitorBreakpoint) {
+      width: 210px;
+    }
+
     ul {
       position: relative;
-      padding: 0;
+      padding: 0 30px 0 10px;
       text-align: right;
       text-transform: uppercase;
-      padding-right: 24px;
       margin: 0;
       li {
         list-style: none;
-        padding: 3px 0 3px 0;
-        a {
+        padding: 4px 0;
+        div {
+          display: block;
+          position: relative;
           color: $gray;
           border-radius: 3px;
-          padding: 2px 4px 2px 4px;
-          &:hover {
-            background-color: $gray;
-            color: $beige;
+          .euro-in-production {
+            font-size: 10px;
+            vertical-align: baseline;
+            color: red;
+            padding-right: 4px;
+          }
+          .euro-rack-title {
+            padding: 2px 3px;
+            border-radius: 2px;
+            &:hover {
+              background-color: $gray;
+              color: $beige;
+            }
           }
         }
       }
