@@ -8,7 +8,7 @@ Template.submitEuroRack.events({
       title: title,
       slug: slug,
       discontinued: false,
-      active: false
+      active: true
     }
     //insert doc
     Meteor.call('insertEuroRack', doc, function(err) {

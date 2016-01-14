@@ -18,5 +18,49 @@ Template.editEuroRackFormAdmin.events({
         FlowRouter.go('/edit/' + slug);
       }
     });
+  },
+  'click .toggle-discontinued': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setDiscontinued', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
+  },
+  'click .toggle-active': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setActive', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
+  },
+  'click .toggle-inProduction': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setInProduction', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
+  },
+  'click .toggle-new': function(event) {
+    var euroRackId = this._id;
+    var checked = event.target.checked;
+    Meteor.call('setNew', euroRackId, checked, function(err) {
+      if(err) {
+        console.log(err.reason);
+      } else {
+        console.log('module updated');
+      }
+    });
   }
 });

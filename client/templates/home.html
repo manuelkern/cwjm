@@ -6,9 +6,11 @@
 
         <div class="euro-racks">
         {{#each euroRacks}}
+          {{#if active}}
           <div class="euro-rack">
             <img class="image" src="{{image.url}}">
           </div>
+          {{/if}}
         {{/each}}
         </div>
 

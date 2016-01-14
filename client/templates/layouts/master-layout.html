@@ -32,13 +32,15 @@
     {{#if Template.subscriptionsReady}}
     <ul>
     {{#each titles}}
-      <li>
+    {{#if active}}
+      <li class="{{slug}}">
         <div>
           {{#if new}}<span class="euro-new">NEW </span>{{/if}}
           {{#if inProduction}}<span class="euro-in-production">IN PRODUCTION </span>{{/if}}
           <a href="{{pathFor '/:slug' slug=slug}}" class="euro-rack-title {{#if isActive}}active{{/if}}">{{title}}</a>
         </div>
       </li>
+    {{/if}}
     {{/each}}
     </ul>
     {{/if}}

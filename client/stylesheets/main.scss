@@ -85,7 +85,7 @@ html, body {
   background-color: $beige;
   font-family: 'DINProRegular';
   font-smoothing: subpixel-antialiased;
-  transition: background-color 1s;
+  // transition: background-color 1s;
   &.gray {
     background-color: $gray;
   }

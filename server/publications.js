@@ -8,5 +8,5 @@ Meteor.publish('euroRack', function(slug) {
 });
 
 Meteor.publish('euroRacksTitles', function() {
-	return EuroRacks.find({}, {fields: {title:1, slug:1, inProduction: 1, new: 1}});
-})
+	return EuroRacks.find({}, {fields: {title:1, slug:1, inProduction: 1, new: 1, active: 1}});
+});

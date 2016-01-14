@@ -21,11 +21,11 @@ Template.masterLayout.onRendered(function() {
 
 Template.masterLayout.events({
   'click #open-admin-panel': function(event) {
-    $('.admin, .app').addClass('open');
+    $('.admin, .app, .stripe1').addClass('open');
     $(event.target).velocity('fadeOut');
   },
   'click #close-admin-panel': function(event) {
-    $('.admin, .app').removeClass('open');
+    $('.admin, .app, .stripe1').removeClass('open');
     $('#open-admin-panel, .admin-icon').velocity('fadeIn')
   }
 });

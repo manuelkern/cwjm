@@ -24,7 +24,9 @@ Template.euroRackAdmin.events({
     event.preventDefault();
     var euroRackId = this._id;
     //remove doc
-    EuroRacks.remove(euroRackId);
+    if(confirm('delete this module?')){
+      EuroRacks.remove(euroRackId);
+    }
   },
   'click .toggle-discontinued': function(event) {
     var euroRackId = this._id;

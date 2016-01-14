@@ -74,6 +74,14 @@ Template.home.helpers({
 });
 
 Template.home.events({
+  'mouseenter .image':function(event) {
+    const slug = this.slug;
+    $('.' + slug).find('a').addClass('active');
+  },
+  'mouseleave .image':function(event) {
+    const slug = this.slug;
+    $('.' + slug).find('a').removeClass('active');
+  },
   'click .image': function(event) {
     event.preventDefault();
     //variables
