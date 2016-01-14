@@ -28,3 +28,6 @@ classcraft:imagemagick
 tomi:upload-server
 tomi:upload-jquery
 velocityjs:velocityjs
+froala:editor-reactive
+reactive-var
+zimme:active-route

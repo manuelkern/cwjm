@@ -6,3 +6,7 @@ Meteor.publish('euroRacks', function() {
 Meteor.publish('euroRack', function(slug) {
   return EuroRacks.find({slug: slug});
 });
+
+Meteor.publish('euroRacksTitles', function() {
+	return EuroRacks.find({}, {fields: {title:1, slug:1}});
+})

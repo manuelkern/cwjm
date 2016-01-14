@@ -1,22 +1,28 @@
 Template.euroRack.onCreated(function() {
-  var self = this;
+  let self = this;
   self.autorun(function() {
-    var slug = FlowRouter.getParam('slug');
+    let slug = FlowRouter.getParam('slug');
     self.subscribe('euroRack', slug);
   });
 });
 
 Template.euroRack.onRendered(function() {
 	//set background
-	$('.app').addClass('gray');
+	$('.app, .darker, body, html, .modules-nav, .main-nav').addClass('gray');
+	const logo = document.getElementById('logo');
+	logo.style.backgroundImage = "url(/images/logo_beige.svg)";
 
 	const transitionPanel = document.getElementsByClassName('transition-panel')[0];
-
-	const secondTransionPanel = document.createElement('div');
-				secondTransionPanel.className = 'transition-panel second';
-
 	const modulePage = document.getElementsByClassName('app')[0];
 
+	const secondTransionPanel = document.createElement('div');
+	secondTransionPanel.className = 'transition-panel second';
+
+	const logoE = document.createElement('img');
+	logoE.src = '/images/e.svg';
+
+	secondTransionPanel.appendChild(logoE);
+	
 	let panelOut;
 
 	if (typeof transitionPanel === 'undefined') {
@@ -36,32 +42,30 @@ Template.euroRack.onRendered(function() {
 		if(Template.instance().subscriptionsReady()) {
 
 			Tracker.afterFlush(function() {
+				$('.sub-title').hyphenate('en-us');
 
 				const euroRack = document.getElementsByClassName('euro-rack')[0];
-
-				euroRack.onload = function() {
-					showModule(this);
-				}
+				// euroRack.onload = function() {
+				// 	showModule(this);
+				// }
+				const hello = 'hello';
 
 				if (panelOut) {
-
 					modulePage.appendChild(secondTransionPanel);
-					$(transitionPanel).velocity({left: '100%'}, {duration: 700, delay: 300, easing: [ 50, 10 ]});
-					$(secondTransionPanel).velocity({left: '100%'}, {
-						duration: 1000,
-						// easing: [ 50, 10 ],
+					$(transitionPanel).addClass('leave');
+					$(secondTransionPanel).velocity({translateX: '200%'}, {
+						duration: 800,
+						easing: 'easeInOut',
 						complete: function() {
 							$(transitionPanel).remove();
 							$(secondTransionPanel).remove();
+							panelOut = false;
 						}
 					});
-
 				}
 
 			});
-
 		}
-
 	});
 });
 
@@ -71,3 +75,8 @@ Template.euroRack.helpers({
     return EuroRacks.findOne({slug: slug});
   }
 });
+
+Template.euroRack.onDestroyed(function() {
+	const logo = document.getElementById('logo');
+	logo.style.backgroundImage = "url(/images/logo.svg)";
+})

@@ -17,9 +17,12 @@
     width: 275px;
     background-color: $darker;
     z-index: 700;
+    &.gray {
+      background-color: $darkGray;
+    }
   }
   .main-nav {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     width: calc(100% - 155px);
@@ -29,6 +32,7 @@
     text-transform: uppercase;
     @include font-size(0.8);
     z-index: 900;
+    // transition: color 1s;
     ul {
       margin: 0;
       padding: 0;
@@ -36,9 +40,18 @@
         list-style: none;
         display: inline-block;
         padding: 0 30px 0 30px;
+        a {
+          // transition: color 1s;
+        }
       }
     }
-    .logo{
+    &.gray {
+      color: $beige;
+      a {
+        color: $beige;
+      }
+    }
+    #logo{
       background-image: url('/images/logo.svg');
       background-repeat: no-repeat;
       background-size: contain;
@@ -50,36 +63,17 @@
     }
   }
 
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // HOME
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+
   .home {
     position: relative;
     width: 100%;
-    .modules-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 275px;
-      z-index: 750;
-      @include font-size(0.8);
-      ul {
-        position: relative;
-        padding: 0;
-        text-align: right;
-        text-transform: uppercase;
-        padding-right: 24px;
-        margin: 50px 0 0 0;
-        li {
-          list-style: none;
-          padding: 3px 0 3px 0;
-          a {
-            padding: 3px 6px 3px 6px;
-            &:hover {
-              background-color: $black;
-              color: $beige;
-            }
-          }
-        }
-      }
-    }
+    top: 220px;
+
     .euro-racks {
       position: relative;
       width: calc(100% - 325px);
@@ -127,19 +121,70 @@
     }
   }
 
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // MODULE PAGE
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------  
+
   .euro-rack-page {
-    .euro-rack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    .module-info {
+      background-color: $middleGray;
       position: absolute;
-      top: 300px;
+      left: 275px;
+      width: calc(50% - 275px);
+      height: calc(100% - 270px);
+      top: 0;
+      padding-top: 270px;
+      color: $beige;
+      .head {
+        @include font-size(5);
+        text-transform: uppercase;
+        padding-left: 30px;
+        margin-top: -14px;
+        line-height: 1;
+        .title {
+          font-family: 'DINProBold';
+        }
+        .sub-title {
+          color: $black;
+          // word-wrap: break-word;
+          // hyphens: auto;
+          max-width: 100%;
+        }
+      }
+      .description {
+        padding-left: 35px;
+        margin-top: 20px;
+        max-width: 60%;
+      }
+    }
+    .euro-rack-wrapper {    
+      position: relative;
+      width: 50%;
       left: 50%;
-      transform: translateX(-50%);
-      width: 450px;
-      opacity: 0;
+      height: 100%;
+      top: 0;
+      .euro-rack {
+        position: absolute;
+        top: 270px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 450px;
+        opacity: 1;
+      }
     }
   }
-  &.gray {
-    background-color: $gray;
-  }
+
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // TRANSITION
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
 
   .transition-panel {
     position: fixed;
@@ -150,9 +195,8 @@
     top: 0;
     left: -100%;
     z-index: 2000;
-    &.second {
-      background-color: $beige;
-    }
+    transition: transform .4s;
+    transition-delay: .4s;
     p {
       font-family: 'DINProBold';
       line-height: 0.712;
@@ -160,16 +204,95 @@
       margin: 0;
       padding: 0;
       width: 100%;
-      left: -100%;
       top: 45%;
-      transform: translateY(-50%);
+      transform: translate(-100%, -50%);
       color: $darkGray;
       font-size: 1250px;
       letter-spacing: -100px;
-      transition: left 1.2s;
+      transition: transform .6s;
+      transition-delay: .4s;
       &.open {
-        left: 0;
+        transform: translate(0, -50%);
       }
     }
+    &.second {
+      background-color: $beige;
+      transition: none;
+      transition-delay: 0s;
+      img {
+        position: absolute;
+        width: 120%;
+        left: 0;
+        top: 50%;
+        opacity: 0.1;
+        transform: translate(0, -50%);
+        transition: transform 1s ease-in-out;
+        &.leave {
+          transform: translate(0, -50%);
+        }
+      }
+    }
+    &.open {
+      transform: translateX(100%);
+    }
+    &.leave {
+      transition-delay: .3s;
+      transform: translateX(200%);
+    }
+  }
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+  // MODULES-NAV
+  //---------------------------------------------------------------------------------
+  //---------------------------------------------------------------------------------
+
+  .modules-nav {
+    position: absolute;
+    top: 270px;
+    left: 0;
+    width: 275px;
+    z-index: 750;
+    @include font-size(0.8);
+    ul {
+      position: relative;
+      padding: 0;
+      text-align: right;
+      text-transform: uppercase;
+      padding-right: 24px;
+      margin: 0;
+      li {
+        list-style: none;
+        padding: 3px 0 3px 0;
+        a {
+          color: $gray;
+          border-radius: 3px;
+          padding: 2px 4px 2px 4px;
+          &:hover {
+            background-color: $gray;
+            color: $beige;
+          }
+        }
+      }
+    }
+    &.gray {
+      ul {
+        li {
+          a {
+            color: $beige;
+            &:hover {
+              background-color: $beige;
+              color: $darkGray;
+            }
+            &.active {
+              background-color: $beige;
+              color: $darkGray; 
+            }
+          }
+        }
+      }
+    }
+  }
+  &.gray {
+    background-color: $gray;
   }
 }

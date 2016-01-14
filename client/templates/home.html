@@ -3,14 +3,6 @@
   {{#if Template.subscriptionsReady}}
     {{#with euroRacks}}
       <div class="page home">
-        
-        <div class="modules-nav">
-          <ul>
-          {{#each euroRacks}}
-            <li><a href="{{pathFor '/:slug' slug=slug}}">{{title}}</a></li>
-          {{/each}}
-          </ul>
-        </div>
 
         <div class="euro-racks">
         {{#each euroRacks}}

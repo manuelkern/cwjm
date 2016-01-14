@@ -3,8 +3,11 @@
     <p id="close-admin-panel"><i class="fa fa-times"></i></p>
     {{>Template.dynamic template=admin}}
   </div>
+
   <div class="app">
+
     <div class="darker"></div>
+    {{> modulesNav}}
     <div class="main-nav">
       <ul>
         <li><a href="/">Modules</a></li>
@@ -14,9 +17,23 @@
         <li><a href="">Dealers</a></li>
         <li><a href="">Contact</a></li>
       </ul>
-      <div class="logo"></div>
+      <div id="logo"></div>
     </div>
+
     <p id="open-admin-panel">Admin panel</p>
     {{>Template.dynamic template=app}}
+  </div>
+
+</template>
+
+<template name="modulesNav">
+  <div class="modules-nav">
+    {{#if Template.subscriptionsReady}}
+    <ul>
+    {{#each titles}}
+      <li><a href="{{pathFor '/:slug' slug=slug}}" class="{{#if isActive}}active{{/if}}">{{title}}</a></li>
+    {{/each}}
+    </ul>
+    {{/if}}
   </div>
 </template>

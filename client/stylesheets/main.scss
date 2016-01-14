@@ -17,6 +17,7 @@ $lighter: rgba(255,255,255,.1);
 $beige: #e7dbc3;
 $gray: #222121;
 $darkGray: #181818;
+$middleGray: #1f1e1e;
 
 //
 // Mixins
@@ -83,6 +84,10 @@ html, body {
   padding: 0;
   background-color: $beige;
   font-family: 'DINProRegular';
+  // transition: background-color 1s;
+  &.gray {
+    background-color: $gray;
+  }
 }
 
 #open-admin-panel {

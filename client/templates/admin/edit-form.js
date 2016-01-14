@@ -1,11 +1,13 @@
 Template.editEuroRackFormAdmin.events({
   'submit #edit-euro-rack': function(event) {
     event.preventDefault();
-    var euroRackId = this._id
-    var title = event.target.title.value;
-    var slug = createURLSlug(title);
-    var doc = {
+    const euroRackId = this._id
+    const title = event.target.title.value;
+    const subTitle = event.target.subTitle.value;
+    const slug = createURLSlug(title);
+    const doc = {
       title: title,
+      subTitle: subTitle,
       slug: slug,
     }
     Meteor.call('editEuroRack', euroRackId, doc, function(err) {
