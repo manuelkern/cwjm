@@ -9,7 +9,7 @@ Template.euroRack.onCreated(function() {
 Template.euroRack.onRendered(function() {
 	//
 	// change colors
-	$('.app, .stripe1, .stripe2, body, html, .modules-nav, .main-nav').addClass('gray');
+	$('.app, .stripe1, .stripe2, body, html, .euro-racks-nav, .main-nav').addClass('gray');
 	//
 	// change logo's color
 	const	logo = document.getElementById('logo');
@@ -40,8 +40,36 @@ Template.euroRack.onRendered(function() {
 		if(Template.instance().subscriptionsReady()) {
 
 			Tracker.afterFlush(function() {
+				//
+				// reset reactiveVar fromGrid
+				if (fromGrid) {
+					const navH = document.getElementsByClassName('main-nav gray')[0].offsetHeight - 1;
+					const nHero = document.getElementsByClassName('hero-transition')[0];
+					const n = nHero.getBoundingClientRect();
+					const oHero = document.getElementsByClassName('hero-transition-leaving')[0];
+					const o = oHero.getBoundingClientRect();
+
+					const x = (o.left - n.left) - ( (n.width - o.width) / 2 );
+					const y = (oHero.offsetTop + navH) - n.top;
+					const w = n.width;
+					const h = n.height;
+
+					$(oHero).velocity({
+						translateX: -x + 'px',
+						translateY: -y + 'px',
+						width: w + 'px',
+						height: h + 'px'
+					}, {
+						easing: [ 150, 35 ]
+					})
+
+					// $('.circle').velocity('fadeOut');
+
+					fromGrid = false;
+				}
+				
+				// put hyphens on subtitle
 				$('.sub-title').hyphenate('en-us');
-				const euroRack = document.getElementsByClassName('euro-rack')[0];
 
 				if (panelOut) {
 					modulePage.appendChild(secondTransionPanel);

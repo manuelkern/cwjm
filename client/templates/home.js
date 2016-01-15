@@ -6,10 +6,9 @@ Template.home.onCreated(function() {
 });
 
 Template.home.onRendered(function() {
-
   //set background
   if ($('.app').hasClass('gray')) {
-    $('.app, .stripe1, .stripe2, body, html, .modules-nav, .main-nav').removeClass('gray');
+    $('.app, .stripe1, .stripe2, body, html, .euro-racks-nav, .main-nav').removeClass('gray');
   }
 
   let size = 2.5;
@@ -86,6 +85,9 @@ Template.home.events({
     if ((centerH - $eventCenterHeight) < $eventTop) {
       operatorY = false
     }
+
+    $module.parent().addClass('hero-transition-leaving');
+
     //
     // create elements
     const circle = document.createElement('div');
@@ -101,9 +103,9 @@ Template.home.events({
     });
     //
     // append the transition panel
-    page.appendChild(transitionPanel);
-    transitionPanel.appendChild(moduleTitle);
-    
+    // page.appendChild(transitionPanel);
+    // transitionPanel.appendChild(moduleTitle);
+
     // -------------------------------------------------------------
     // -------------------------------------------------------------
     // FUNCTIONS
@@ -113,6 +115,7 @@ Template.home.events({
     const goRoute = function() {
       $('.app').css({'overflow-y': 'scroll'});
       $('.app').scrollTop('0');
+      fromGrid = true;
       FlowRouter.go('/' + slug)
     }
 
@@ -149,16 +152,16 @@ Template.home.events({
       const scaleX = (Screen.width() / circle.offsetWidth) * 2;
       //
       // animate scale
-      $(circle).velocity({ scaleX: scaleX, scaleY: scaleX }, { duration: 500 });
+      $(circle).velocity({ scaleX: scaleX, scaleY: scaleX }, { duration: 500, complete: goRoute });
       //
       // animate module to desired position
-      $module.parent().velocity({ translateX: getCenterX(), translateY: getCenterY() }, { easing: [ 200, 15 ], duration: 700 });
+      // $module.parent().velocity({ translateX: getCenterX(), translateY: getCenterY() }, { easing: [ 200, 15 ], duration: 700 });
       //
       // animate transition panels
-      $('.transition-panel, .transition-title').addClass('open');
+      // $('.transition-panel, .transition-title').addClass('open');
       //
       //go to route
-      setTimeout(goRoute, 1000);
+      // goRoute();
     }
 
     setTimeout(animTransition, 200);

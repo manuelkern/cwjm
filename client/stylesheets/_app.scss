@@ -131,9 +131,10 @@
         word-spacing: normal;
         overflow: hidden;
         margin: 50px 0 0 50px;
+        transform-origin: 50%;
         // opacity: 0;
-        transition: width .3s, height .3s, opacity 1s;
-        transition-delay: 0s, 0s, 0.3s;
+        // transition: width .3s, height .3s, opacity 1s;
+        // transition-delay: 0s, 0s, 0.3s;
         .title {
           position: absolute;
           text-rendering: auto;
@@ -323,7 +324,7 @@
   //---------------------------------------------------------------------------------
   //---------------------------------------------------------------------------------
 
-  .modules-nav {
+  .euro-racks-nav {
     position: absolute;
     top: 270px;
     left: 0;

@@ -12,11 +12,14 @@ Template.masterLayout.onRendered(function() {
         .fadeIn();
     },
     removeElement: function(node) {
-      $(node).fadeOut(function() {
-        $(this).remove();
-      });
+      if(!fromGrid) {
+        $(node).fadeOut(function() {
+          $(this).remove();
+        });
+      }
     }
   }
+
 });
 
 Template.masterLayout.events({
