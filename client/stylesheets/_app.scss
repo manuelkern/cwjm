@@ -60,7 +60,7 @@
     text-transform: uppercase;
     @include font-size(0.8);
     z-index: 900;
-    @media (max-width: $widescreenBreakpoint) {
+    @media (max-width: $wideMonitorBreakpoint) {
       height: 150px;
     }
     @media (max-width: $largeMonitorBreakpoint) {
@@ -110,7 +110,7 @@
     position: relative;
     width: 100%;
     top: 220px;
-    @media (max-width: $widescreenBreakpoint) {
+    @media (max-width: $wideMonitorBreakpoint) {
       top: 170px;
     }
     .euro-racks {
@@ -131,7 +131,7 @@
         word-spacing: normal;
         overflow: hidden;
         margin: 50px 0 0 50px;
-        opacity: 0;
+        // opacity: 0;
         transition: width .3s, height .3s, opacity 1s;
         transition-delay: 0s, 0s, 0.3s;
         .title {
@@ -183,7 +183,7 @@
       top: 0;
       padding-top: 270px;
       color: $beige;
-      @media (max-width: $widescreenBreakpoint) {
+      @media (max-width: $wideMonitorBreakpoint) {
         padding-top: 220px;
         // height: calc(100% - 220px);
       }
@@ -198,7 +198,7 @@
         padding-left: 30px;
         margin-top: -14px;
         line-height: 1;
-        @media (max-width: $widescreenBreakpoint) {
+        @media (max-width: $wideMonitorBreakpoint) {
           @include font-size(4.5);
         }
         @media (max-width: $largeMonitorBreakpoint) {
@@ -238,7 +238,7 @@
         transform: translateX(-50%);
         width: 450px;
         opacity: 1;
-        @media (max-width: $widescreenBreakpoint) {
+        @media (max-width: $wideMonitorBreakpoint) {
           top: 220px;
           width: 350px;
         }
@@ -280,7 +280,7 @@
       letter-spacing: -100px;
       transition: transform .6s;
       transition-delay: .4s;
-      @media (max-width: $widescreenBreakpoint) {
+      @media (max-width: $wideMonitorBreakpoint) {
         font-size: 650px;
         letter-spacing: -50px;
       }
@@ -331,7 +331,7 @@
     z-index: 750;
     @include font-size(0.8);
 
-    @media (max-width: $widescreenBreakpoint) {
+    @media (max-width: $wideMonitorBreakpoint) {
       top: 220px;
     }
 
